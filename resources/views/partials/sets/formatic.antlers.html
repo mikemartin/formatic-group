@@ -1,0 +1,49 @@
+<x-block form_size="{form_size}">
+    {{ form:create :in="selected_form:handle" js="alpine:form" attr:x-ref="form" files="true" }}
+        <div x-data="formatic()" x-init="() => { success_message_duration = '{{ success_message_duration }}' }">
+            {{ if submit_options === 'thankyou_page' }}
+                <template x-if="success">
+                    <x-alert class="mb-5">
+                        {{ svg src="check" class="w-6 h-6" }}
+                        <x-alert.title>{{ submit_title }}</x-alert.title>
+                        {{ if submit_description }}
+                            <x-prose class="mt-2">
+                                {{ submit_description }}
+                            </x-prose>
+                        {{ /if }}
+                    </x-alert>
+                </template>
+            {{ else }}
+                <div class="hidden" x-init="() => { redirect_url = '{{ page_redirect_url }}' }">
+                </div>
+            {{ /if }}
+            <div>
+                {{ if show_sections }}
+                    {{ partial:partials.sets.formatic.form_sections }}
+                {{ elseif enable_multistep }}
+                    {{ partial:partials.sets.formatic.form_multistep }}
+                {{ else }}
+                    {{ partial:partials.sets.formatic.form_grid }}
+                {{ /if }}
+                {{ if required_fields_text }}
+                    <div class="my-4">
+                        <p class="text-xs font-semibold text-destructive">
+                            {{ required_fields_text }}
+                        </p>
+                    </div>
+                {{ /if }}
+                {{ if !enable_multistep }}
+                    <div class="sm:col-span-12">
+                        <x-button x-bind:disabled="form.processing" @click.prevent="submit" type="submit">
+                            <template x-if="form.processing">
+                                <x-spinner />
+                            </template>
+                            Submit
+                        </x-button>
+                    </div>
+                {{ /if }}
+                <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
+            </div>
+        </div>
+    {{ /form:create }}
+</x-block>

@@ -1,0 +1,11 @@
+name: 'Mike Martin'
+super: true
+id: 9eb23c42-7aed-49c6-b3b3-6f12f3c7585c
+password_hash: $2y$12$gOMxXwdvjZKadGlu69ron.W2Gl0IfOyuXtRrkULfVs3K1MOXEUMC6
+preferences:
+  collections:
+    pages:
+      columns:
+        - title
+        - slug
+        - status

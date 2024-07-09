@@ -1,0 +1,245 @@
+title: Formatic
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: 'Page Header'
+          -
+            handle: page_description
+            field:
+              type: textarea
+              display: 'Page Description'
+              instructions: 'Displayed under the title'
+      -
+        display: 'Form Builder'
+        fields:
+          -
+            import: builder
+  form:
+    display: Form
+    sections:
+      -
+        display: Appearance
+        fields:
+          -
+            handle: logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Logo Light'
+              instructions: |-
+                The light version of the Logo. 
+                It is displayed above the title.
+              width: 50
+          -
+            handle: logo_dark
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Logo Dark'
+              instructions: |-
+                The dark version of the Logo. 
+                It is displayed above the title.
+              width: 50
+          -
+            handle: logo_size
+            field:
+              options:
+                small: Small
+                medium: Medium
+                large: Large
+              default: medium
+              type: button_group
+              display: 'Logo Size'
+          -
+            handle: theme_color
+            field:
+              swatches:
+                - '#52525b'
+                - '#e11d48'
+                - '#3b82f6'
+                - '#22c55e'
+                - '#ea580c'
+                - '#f8fafc'
+                - '#fafaf9'
+                - '#f9fafb'
+                - '#fafafa'
+                - '#dc2626'
+                - '#facc15'
+                - '#6d28d9'
+              allow_any: false
+              default: '#e11d48'
+              type: color
+              display: 'Theme Color'
+              width: 25
+          -
+            handle: theme_radius
+            field:
+              options:
+                0rem: None
+                0.3rem: Small
+                0.5rem: Base
+                0.75rem: Medium
+                1.0rem: Full
+              default: 0.5rem
+              type: button_group
+              display: Radius
+              instructions: 'The border radius of the elements.'
+              width: 75
+      -
+        display: Settings
+        fields:
+          -
+            handle: darkmode_toggle
+            field:
+              default: true
+              type: toggle
+              display: 'Darkmode Toggle'
+              instructions: 'Enable or Disable the Darkmode Toggle.'
+              width: 50
+          -
+            handle: theme_mode
+            field:
+              options:
+                light: Light
+                dark: Dark
+                auto: Auto
+              type: button_group
+              display: 'Theme Mode'
+              instructions: 'Auto will respect the users preference.'
+              if:
+                darkmode_toggle: 'equals false'
+          -
+            handle: form_size
+            field:
+              options:
+                compact: Compact
+                medium: Medium
+                container: Container
+              default: medium
+              type: button_group
+              display: 'Form Size'
+              width: 50
+          -
+            handle: required_fields_text
+            field:
+              default: '* Required fields'
+              type: text
+              display: 'Required Fields Text'
+              width: 50
+          -
+            handle: protect_spacer
+            field:
+              type: spacer
+              display: 'Protect Spacer'
+          -
+            handle: protected_page
+            field:
+              type: toggle
+              display: 'Protected Page'
+              width: 33
+          -
+            handle: protect
+            field:
+              default: password
+              type: text
+              display: Protect
+              width: 66
+              visibility: read_only
+              if:
+                protected_page: 'equals true'
+      -
+        display: 'Submit Settings'
+        fields:
+          -
+            handle: submit_options
+            field:
+              options:
+                thankyou_page: 'Thank you page'
+                page_redirect: 'Redirect URL'
+              default: thankyou_page
+              type: button_group
+              display: 'Submit Options'
+              instructions: 'Choose what to do after the Form is submitted.'
+              width: 50
+          -
+            handle: success_message_duration
+            field:
+              min: 1
+              default: 4
+              type: range
+              display: 'Success Message Duration'
+              instructions: 'The duration (in seconds) for which the success message remains visible after form submission.'
+              width: 50
+              if:
+                submit_options: 'equals thankyou_page'
+              max: 10
+          -
+            handle: submit_title
+            field:
+              default: 'Thank you. Your form is submitted.'
+              type: text
+              display: 'Submit Title'
+              validate:
+                - 'required_if:submit_options,thankyou_page'
+              if:
+                submit_options: 'equals thankyou_page'
+          -
+            handle: submit_description
+            field:
+              buttons:
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+              allow_source: false
+              remove_empty_nodes: false
+              type: bard
+              display: 'Submit Description'
+              if:
+                submit_options: 'equals thankyou_page'
+          -
+            handle: page_redirect_url
+            field:
+              input_type: url
+              type: text
+              display: 'Redirect URL'
+              duplicate: false
+              if:
+                submit_options: 'equals page_redirect'
+              validate:
+                - 'required_if:submit_options,page_redirect'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

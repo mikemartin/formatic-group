@@ -1,0 +1,11 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: what_is_the_name_of_your_organization
+            field:
+              type: text
+              display: 'What is the name of your organization?'
