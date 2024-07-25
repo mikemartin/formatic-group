@@ -2,7 +2,6 @@
 id: cf499d02-436c-4b38-8455-68fd7febef41
 blueprint: formatic
 title: Requirements
-page_description: 'Fill out the form below accurately.'
 form_builder:
   -
     id: lycjxine
@@ -25,6 +24,26 @@ form_builder:
     type: formatic
     enabled: true
   -
+    id: lyqlnoa1
+    content:
+      -
+        type: heading
+        attrs:
+          textAlign: left
+          level: 2
+        content:
+          -
+            type: text
+            text: 'Management of Contact records'
+    type: text
+    enabled: true
+  -
+    id: lyqlloc8
+    show_sections: true
+    selected_form: management_of_contact_records
+    type: formatic
+    enabled: true
+  -
     id: lycjzc1q
     content:
       -
@@ -35,7 +54,7 @@ form_builder:
         content:
           -
             type: text
-            text: 'Membership - Individual'
+            text: 'Membership - for Individuals'
     type: text
     enabled: true
   -
@@ -55,7 +74,7 @@ form_builder:
         content:
           -
             type: text
-            text: 'Membership - Organisation'
+            text: 'Membership - for Organisations'
     type: text
     enabled: true
   -
@@ -80,10 +99,10 @@ form_builder:
     enabled: true
   -
     id: lycjudod
-    show_sections: true
     selected_form: scheduled_events
     type: formatic
     enabled: true
+    enable_multistep: true
 logo_size: large
 theme_radius: 0.5rem
 darkmode_toggle: true
@@ -93,8 +112,8 @@ protected_page: false
 submit_options: thankyou_page
 submit_title: 'Thank you. Your form is submitted.'
 success_message_duration: 4
-updated_by: 9eb23c42-7aed-49c6-b3b3-6f12f3c7585c
-updated_at: 1720484634
+updated_by: cd92a3f8-b58a-417f-a997-6de0d8d6d9a9
+updated_at: 1721284592
 yes_no_field: 'yes'
 theme_color: '#3b82f6'
 ---

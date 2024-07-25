@@ -190,7 +190,8 @@ tabs:
               type: yes_no
               display: 'Does the different Individual need to be at the same organisation, or a child Organisation, as the Booker?'
       -
-        display: 'Group Booking'
+        display: 'Group Bookings'
+        instructions: 'When a "Booker" can register tickets for multiple attendees'
         fields:
           -
             handle: do_you_require_support_for_group_bookings
@@ -208,7 +209,8 @@ tabs:
               type: yes_no
               display: 'Are the Group Booking Registrants only allowed to be Invidividuals assigned to the Organisation of the Booker?'
       -
-        display: 'Table Booking'
+        display: 'Table Bookings'
+        instructions: 'When a "Booker" can purchase a table and manage the attendees'
         fields:
           -
             handle: do_you_require_support_for_table_bookings

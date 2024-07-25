@@ -5,15 +5,13 @@ tabs:
       -
         fields:
           -
-            handle: do_you_have_individual_memberships
-            field:
-              type: yes_no
-              display: 'Do you have Individual memberships?'
-          -
             handle: do_you_offer_your_members_pricing_concessions_for_example_for_being_unwell_or_on_paternity_leave
             field:
               type: yes_no
               display: 'Do you offer your members pricing concessions, for example for being unwell or on paternity leave?'
+              instructions: 'Some additional field instructions'
+              validate:
+                - required
           -
             handle: are_these_concessions_based_on_a_percentage_of_the_membership_fee_or_a_fixed_amount
             field:
@@ -131,4 +129,3 @@ tabs:
             field:
               type: yes_no
               display: 'Do you have members that are overseas and therefore exempt from Sales Tax / VAT / GST?'
-

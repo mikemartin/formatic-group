@@ -1,0 +1,22 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: text_field_test
+            field:
+              type: text
+              display: 'Text Field test'
+              validate:
+                - required
+              instructions: 'You can enter your special requirements here'
+              character_limit: 1000
+              antlers: true
+          -
+            handle: textarea_field
+            field:
+              character_limit: '100'
+              type: textarea
+              display: 'Textarea Field'
