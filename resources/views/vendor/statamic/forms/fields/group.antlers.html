@@ -4,7 +4,6 @@
   <div class="grid gap-4 md:grid-cols-12">
     {{ fields }}
       {{ field }}
-        {{ handle = group_handle + '.' + handle}}
         {{ _widthClass = switch(
                   (width == '100') => 'sm:col-span-12',
                   (width == '75') => 'sm:col-span-9',
@@ -16,7 +15,7 @@
         {{ if type !== 'spacer' }}
             <template x-if="{{ show_field }}">
                 <div class="{{ _widthClass }}">
-                    <x-label for="{{ handle }}" class="mb-1">
+                    <x-label for="{{ group_handle}}.{{ handle }}" class="mb-1">
                         {{ display }}
                         {{ if validate | contains('required') }}
                             <sup class="text-destructive">*</sup>
@@ -28,14 +27,15 @@
                         </div>
                     {{ /if }}
                     <div class="my-2">
-                        {{ partial:vendor/statamic/forms/fields/{type} }}
+                        {{ partial:vendor/statamic/forms/fields/{type} 
+                          handle="{group_handle}.{handle}" }}
                     </div>
                     {{ if instructions && instructions_position === 'below' }}
                         <div class="prose prose-sm text-muted-foreground">
                             {{ instructions|markdown }}
                         </div>
                     {{ /if }}
-                    <template x-if="form.invalid('{{ handle }}')">
+                    <template x-if="form.invalid('{{ group_handle }}.{{ handle }}')">
                         <p class="text-sm text-destructive" x-text="form.errors.{{ handle }}"></p>
                     </template>
                 </div>

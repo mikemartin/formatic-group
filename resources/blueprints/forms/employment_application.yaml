@@ -54,6 +54,40 @@ tabs:
               validate:
                 - 'required_if:communication_preference,email'
           -
+            handle: country_outside
+            field:
+              dictionary:
+                type: countries
+                region: oceania
+              placeholder: 'Select country'
+              max_items: 1
+              type: dictionary
+              display: Country
+          -
+            handle: how_would_you_like_your_item_shipped_outside
+            field:
+              options:
+                -
+                  key: regular
+                  value: 'Regular Mail'
+                -
+                  key: express
+                  value: Express
+              type: select
+              display: 'How would you like your item shipped?'
+          -
+            handle: do_you_have_a_letter_box_outside
+            field:
+              options:
+                -
+                  key: 'yes'
+                  value: 'Yes'
+                -
+                  key: 'no'
+                  value: 'No'
+              type: radio
+              display: 'Do you have a letter box?'
+          -
             handle: mailing_address
             field:
               type: group
@@ -96,6 +130,40 @@ tabs:
                     width: 33
                     validate:
                       - required
+                -
+                  handle: country
+                  field:
+                    dictionary:
+                      type: countries
+                      region: oceania
+                    placeholder: 'Select country'
+                    max_items: 1
+                    type: dictionary
+                    display: Country
+                -
+                  handle: how_would_you_like_your_item_shipped
+                  field:
+                    options:
+                      -
+                        key: regular
+                        value: 'Regular Mail'
+                      -
+                        key: express
+                        value: Express
+                    type: select
+                    display: 'How would you like your item shipped?'
+                -
+                  handle: do_you_have_a_letter_box
+                  field:
+                    options:
+                      -
+                        key: 'yes'
+                        value: 'Yes'
+                      -
+                        key: 'no'
+                        value: 'No'
+                    type: radio
+                    display: 'Do you have a letter box?'
       -
         display: 'Application Details'
         fields:
