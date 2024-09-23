@@ -13,6 +13,7 @@
         "laravel/framework": "^11",
         "laravel/tinker": "^2.9",
         "marcorieser/tailwind-merge-statamic": "^1.1.0",
+        "spatie/laravel-ray": "^1.37",
         "statamic/cms": "^5.0",
         "stillat/antlers-components": "^2.2.0"
     },

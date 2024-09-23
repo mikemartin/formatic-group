@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         \Statamic\Fieldtypes\Date::makeSelectableInForms();
         \Statamic\Fieldtypes\Range::makeSelectableInForms();
         \Statamic\Fieldtypes\Lists::makeSelectableInForms();
+        \Statamic\Fieldtypes\Group::makeSelectableInForms();
 
 
          \Statamic\Fieldtypes\Checkboxes::appendConfigField('grid_options', [

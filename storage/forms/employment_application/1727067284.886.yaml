@@ -1,0 +1,13 @@
+first_name: Mike
+last_name: Martin
+communication_preference: email
+email: hello@mike-martin.ca
+mailing_address:
+  street_address: '1234 Main Street'
+  street_address_line_2: null
+  city: Sydney
+  province: NSW
+  postal_code: 2066
+referral:
+  - google
+motivation_letter: Test
